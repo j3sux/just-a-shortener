@@ -1,9 +1,6 @@
 
 # Just a simple URL shortener in Java
 
-  
-  
-
 > POST: to http:localhost with the json data
 > {“url”:”www.google.maps.com”} returns “alias”:”BdfGT”
 > 
@@ -38,7 +35,7 @@ The rules are ...
 
 ## Proces diagrams
 
-#### Retrieving  process
+### Retrieving  process
 
 ```mermaid
 sequenceDiagram
@@ -50,7 +47,9 @@ Mem DB-->>Repository: url found
 Repository -->> Service: Urlmap
 Service -->> Controller : url - redirect
 ```
-#### Creation process
+![image info](./retrieving.png)
+
+### Creation process
 
 ```mermaid
 sequenceDiagram
@@ -68,17 +67,21 @@ Repository -->> Service: Urlmap
 Service -->> Controller : Urlmap
 ```
 
-####  requirements 
+![image info](./creation.png)
+
+### requirements 
 - maven
 - java 
 
-#### Run and Test 
+## Run and Test 
 
       git clone git@github.com:j3sux/just-a-shortener.git
+      cd just-a-shortener.git
+      mvn spring-boot:run
 
-### Examples
+## Examples
 
-#### Google
+### Google
 Create Alias 
 
       curl --location --request POST 'http://localhost:8080/' --header 'Content-Type: application/json' --data-raw '{"url":"https://news.google.com/search?q=java&hl=es-419&gl=MX&ceid=MX%3Aes-419"}'
@@ -87,7 +90,7 @@ Retrive url by alias
 
     curl --location --request GET 'http://localhost:8080/fdacac'
 
-####  Yahoo
+### Yahoo
 Create Alias 
 
       curl --location --request POST 'http://localhost:8080/' --header 'Content-Type: application/json' --data-raw '{"url":"https://login.yahoo.com"}'
@@ -97,9 +100,7 @@ Retrive url by alias
     curl --location --request GET 'http://localhost:8080/fb529f3'
 
 
-
-
-#### nearsoft
+### nearsoft
 
 Create Alias
 
